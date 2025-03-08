@@ -4,7 +4,7 @@ def encrypt(text, key):
         start = ord('A') if text[i].isupper() else ord('a')
         char = chr(start + (ord(text[i]) - start + key) % 26)
         result += char
-    return result  # Added return statement
+    print(result) 
 
 
 def decrypt(text, key):
@@ -13,7 +13,7 @@ def decrypt(text, key):
         start = ord('A') if text[i].isupper() else ord('a')
         char = chr(start + (ord(text[i]) - start - key) % 26)
         result += char
-    return result  # Added return statement
+    print(result)  
 
 
 message = input("Please enter a text: ")
@@ -21,9 +21,9 @@ key = int(input("Please enter a key: "))
 cipher_method = input("Please choice to encrypt or decrypt: ")
 
 if cipher_method == "encrypt":
-    encrypted_message = encrypt(message, key)
-    print(encrypted_message)
-
-if cipher_method == "decrypt":
-    decrypted_message = decrypt(message, key)
-    print(decrypted_message)
+    encrypt(message, key)
+elif cipher_method == "decrypt":
+    decrypt(message, key)
+else:
+    exit()
+   
